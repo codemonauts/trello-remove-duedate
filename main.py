@@ -38,7 +38,7 @@ def get_cards(done_id):
 
 
 def remove_due_date(card_id):
-    r = requests.get("https://api.trello.com/1/cards/{}/due?value=null".format(card_id),
+    r = requests.put("https://api.trello.com/1/cards/{}/due?value=null".format(card_id),
                      params={"key": KEY, "token": TOKEN})
     if r.status_code == 200:
         return r.json()

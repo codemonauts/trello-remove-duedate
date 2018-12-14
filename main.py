@@ -20,7 +20,7 @@ def get_boards(organisation):
         return r.json()
     else:
         print("Couldn't load boards. Error was:")
-        print(r)
+        print(r.text)
 
 
 def get_lists(board_id):
@@ -30,7 +30,7 @@ def get_lists(board_id):
         return r.json()
     else:
         print("Couldn't load lists for this board. Error was:")
-        print(r)
+        print(r.text)
 
 
 def get_cards(done_id):
@@ -40,7 +40,7 @@ def get_cards(done_id):
         return r.json()
     else:
         print("Couldn't load cards for this list. Error was:")
-        print(r)
+        print(r.text)
 
 
 def remove_due_date(card_id):
@@ -50,7 +50,7 @@ def remove_due_date(card_id):
         return r.json()
     else:
         print("Couldn't remove due date from card. Error was:")
-        print(r)
+        print(r.text)
 
 
 def main(event=None, context=None):

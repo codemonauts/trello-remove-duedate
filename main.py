@@ -1,6 +1,11 @@
 #! /usr/bin/env python3
-import requests
 import os
+
+try:
+    import requests
+except ImportError:
+    # Take requests from boto if run with AWS Lambda
+    from botocore.vendored import requests
 
 KEY = os.environ.get('TRELLO_KEY', None)
 TOKEN = os.environ.get('TRELLO_TOKEN', None)
@@ -47,7 +52,7 @@ def remove_due_date(card_id):
         print(r)
 
 
-def main():
+def main(event=None, context=None):
     boards = get_boards(organisation=ORGANISATION)
     for board in boards:
         id = board["id"]

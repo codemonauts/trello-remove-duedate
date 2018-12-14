@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 import os
+from sys import exit
 
 try:
     import requests
@@ -53,6 +54,10 @@ def remove_due_date(card_id):
 
 
 def main(event=None, context=None):
+    if not (ORGANISATION and KEY and TOKEN):
+        print("Not all environment variables are set. Aborting")
+        exit(1)
+
     boards = get_boards(organisation=ORGANISATION)
     for board in boards:
         id = board["id"]

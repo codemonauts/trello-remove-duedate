@@ -1,5 +1,10 @@
 # trello-remove-duedate
 
+## Easier method (Butler)
+Since Trello implemented 'Butler' into their application you now have the possibility to create rules which perform specific actions on your boards. With this rules you can create the same behaviour as this script in a way more convenient way. The following screenshot shows the rule setup:
+![](rule.png)
+
+## Old method (This script)
 When using Trello in a kanban style fashion, you probably have lists with names like Backlog,Doing,Done,Blocked. The problem is that Trello doesn't understands the semantics of these boards and therefore will alert you when a due date is reached even if the card is
 already in the 'Done' list. Therefore this tool will look for a 'Done' list in all of your boards and remove the due date from every card in it.
 You can run this e.g. as a Lambda function on AWS or as a cronjob on one of your servers.
